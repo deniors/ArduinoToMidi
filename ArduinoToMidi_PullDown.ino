@@ -1,5 +1,5 @@
-#define NUM_ROWS 6
-#define NUM_COLS 11
+#define NUM_ROWS 5
+#define NUM_COLS 12
 
 #define NOTE_ON_CMD 0x90
 #define NOTE_OFF_CMD 0x80
@@ -16,7 +16,6 @@ const int row2Pin = 3;
 const int row3Pin = 4;
 const int row4Pin = 5;
 const int row5Pin = 6;
-const int row6Pin = 7;
 
 // 74HC595 pins
 const int dataPin = 8;
@@ -41,7 +40,7 @@ int bits[] =
 
 void setup()
 {
-  int note = 31;
+  int note = 48;
 
   for(int colCtr = 0; colCtr < NUM_COLS; ++colCtr)
   {
@@ -63,7 +62,6 @@ void setup()
   pinMode(row3Pin, INPUT);
   pinMode(row4Pin, INPUT);
   pinMode(row5Pin, INPUT);
-  pinMode(row6Pin, INPUT);
 
   Serial.begin(SERIAL_RATE);
 }
@@ -82,7 +80,6 @@ void loop()
     rowValue[2] = digitalRead(row3Pin);
     rowValue[3] = digitalRead(row4Pin);
     rowValue[4] = digitalRead(row5Pin);
-    rowValue[5] = digitalRead(row6Pin);
 
     // process keys pressed
     for(int rowCtr=0; rowCtr<NUM_ROWS; ++rowCtr)
@@ -110,7 +107,7 @@ void scanColumn(int colNum)
 {
   digitalWrite(latchPin, LOW);
 
-  if(0 <= colNum && colNum <= 7)
+  if(0 <= colNum && colNum <= 6)
   {
     shiftOut(dataPin, clockPin, MSBFIRST, B00000000); //right sr
     shiftOut(dataPin, clockPin, MSBFIRST, bits[colNum]); //left sr
