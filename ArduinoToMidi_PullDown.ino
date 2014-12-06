@@ -107,7 +107,7 @@ void scanColumn(int colNum)
 {
   digitalWrite(latchPin, LOW);
 
-  if(0 <= colNum && colNum <= 6)
+  if(0 <= colNum && colNum <= 7)
   {
     shiftOut(dataPin, clockPin, MSBFIRST, B00000000); //right sr
     shiftOut(dataPin, clockPin, MSBFIRST, bits[colNum]); //left sr
