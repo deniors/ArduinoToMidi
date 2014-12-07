@@ -10,6 +10,9 @@
 
 // Pin Definitions
 
+// LED output pins
+const int statLedPin = 7;
+
 // Row input pins
 const int row1Pin = 2;
 const int row2Pin = 3;
@@ -62,6 +65,8 @@ void setup()
   pinMode(row3Pin, INPUT);
   pinMode(row4Pin, INPUT);
   pinMode(row5Pin, INPUT);
+  
+  pinMode(statLedPin, OUTPUT);
 
   Serial.begin(SERIAL_RATE);
 }
@@ -125,6 +130,7 @@ void noteOn(int row, int col)
   Serial.write(NOTE_ON_CMD);
   Serial.write(keyToMidiMap[row][col]);
   Serial.write(NOTE_VELOCITY);
+  digitalWrite(statLedPin, HIGH);
 }
 
 void noteOff(int row, int col)
@@ -132,6 +138,7 @@ void noteOff(int row, int col)
   Serial.write(NOTE_OFF_CMD);
   Serial.write(keyToMidiMap[row][col]);
   Serial.write(NOTE_VELOCITY);
+  digitalWrite(statLedPin, LOW);
 }
 
 
