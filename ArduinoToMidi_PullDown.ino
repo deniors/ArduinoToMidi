@@ -14,16 +14,16 @@
 const int statLedPin = 7;
 
 // Row input pins
-const int row1Pin = 2;
-const int row2Pin = 3;
-const int row3Pin = 4;
-const int row4Pin = 5;
-const int row5Pin = 6;
+const int row1Pin = 0;
+const int row2Pin = 1;
+const int row3Pin = 2;
+const int row4Pin = 3;
+const int row5Pin = 4;
 
 // 74HC595 pins
-const int dataPin = 8;
-const int latchPin = 9;
-const int clockPin = 10;
+const int dataPin = 11;
+const int latchPin = 12;
+const int clockPin = 13;
 
 boolean keyPressed[NUM_ROWS][NUM_COLS];
 uint8_t keyToMidiMap[NUM_ROWS][NUM_COLS];
