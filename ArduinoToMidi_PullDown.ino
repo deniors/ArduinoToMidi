@@ -16,9 +16,6 @@ const int row2Pin = 1;
 const int row3Pin = 2;
 const int row4Pin = 3;
 const int row5Pin = 4;
-const int row6Pin = 5;
-const int row7Pin = 6;
-const int row8Pin = 7;
 
 // 74HC595 pins
 const int dataPin = 11;
@@ -65,9 +62,6 @@ void setup()
   pinMode(row3Pin, INPUT);
   pinMode(row4Pin, INPUT);
   pinMode(row5Pin, INPUT);
-  pinMode(row6Pin, INPUT);
-  pinMode(row7Pin, INPUT);
-  pinMode(row8Pin, INPUT);
 
   Serial.begin(SERIAL_RATE);
 }
@@ -86,9 +80,6 @@ void loop()
     rowValue[2] = digitalRead(row3Pin);
     rowValue[3] = digitalRead(row4Pin);
     rowValue[4] = digitalRead(row5Pin);
-    rowValue[5] = digitalRead(row6Pin);
-    rowValue[6] = digitalRead(row7Pin);
-    rowValue[7] = digitalRead(row8Pin);
 
     // process keys pressed
     for(int rowCtr=0; rowCtr<NUM_ROWS; ++rowCtr)
